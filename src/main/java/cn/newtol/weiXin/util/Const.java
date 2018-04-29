@@ -7,8 +7,8 @@ package cn.newtol.weiXin.util;
  */
 public class Const {
     //微信配置
-    public static final String AppId = "wxc5e0d5b55b141e56";
-    public static final String AppSecret = "782fc50a471b88e87e544885b2dcc782";
-    public static final String Token = "bbbbbbbbbb";
+    public static final String AppId = "你自己的AppId";
+    public static final String AppSecret = "你自己的AppSecret";
+    public static final String Token = "你自己的Token";
     public static final String AccessToken = "AccessToken:";
 }
