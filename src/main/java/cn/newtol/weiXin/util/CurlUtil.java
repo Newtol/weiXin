@@ -2,7 +2,10 @@ package cn.newtol.weiXin.util;
 
 import java.io.*;
 import java.net.*;
+import java.util.HashMap;
 import java.util.Map;
+
+import static cn.newtol.weiXin.util.AccessToken.getAccessToken;
 
 /**
  * 用于curl调用接口，传递参数与获取结果采用输入输出流
@@ -93,6 +96,7 @@ public class CurlUtil {
         }
         return result;
     }
+
     public static String postData(String strUrl, String data) {
         String result = null;
         try {
@@ -128,6 +132,17 @@ public class CurlUtil {
             e.printStackTrace();
         }
         return result;
+    }
+
+    public static void main(String[] args) {
+        String access_token = getAccessToken();
+        String type="image";
+        String url = "https://api.weixin.qq.com/cgi-bin/media/upload?access_token="+access_token+"&type="+type;
+        Map<String,Object> map = new HashMap<>();
+        map.put("image","C:\\Users\\ASUS\\Desktop\\新建文件夹\\1.jpg");
+        String result = getContent(url,map,null);
+        System.out.println(result);
+
     }
 
 }

@@ -1,4 +1,4 @@
-package cn.newtol.weiXin.service.message;
+package cn.newtol.weiXin.message.service;
 
 import java.util.Map;
 

@@ -1,7 +1,7 @@
-package cn.newtol.weiXin.servlet;
+package cn.newtol.weiXin.message.servlet;
 
-import cn.newtol.weiXin.service.message.MessageService;
-import cn.newtol.weiXin.service.message.MessageServiceImp;
+import cn.newtol.weiXin.message.service.MessageService;
+import cn.newtol.weiXin.message.service.*;
 import cn.newtol.weiXin.util.Const;
 import cn.newtol.weiXin.util.EncryptUtil;
 import cn.newtol.weiXin.util.StringUtil;
