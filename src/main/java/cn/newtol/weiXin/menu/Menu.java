@@ -1,10 +1,9 @@
 package cn.newtol.weiXin.menu;
 import cn.newtol.weiXin.util.AccessToken;
 import cn.newtol.weiXin.util.CurlUtil;
-//import com.alibaba.fastjson.JSONArray;
-//import com.alibaba.fastjson.JSONObject;
-import net.sf.json.JSONObject;
-import net.sf.json.JSONArray;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
@@ -96,7 +95,7 @@ public class Menu {
         JSONObject menuData = new JSONObject();
         for (int i = 0; i < button.size(); i++) {
             Button b = button.get(i);
-            buttonData.put(i, b.toJson());
+            buttonData.add(i, b.toJson());
         }
         menuData.put("button", buttonData);
         return menuData.toString();

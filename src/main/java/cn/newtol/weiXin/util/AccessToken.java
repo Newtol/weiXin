@@ -1,5 +1,6 @@
 package cn.newtol.weiXin.util;
-import net.sf.json.JSONObject;
+
+import com.alibaba.fastjson.JSONObject;
 import redis.clients.jedis.Jedis;
 
 import java.sql.*;
@@ -43,7 +44,7 @@ public class AccessToken {
         String appSecret = Const.AppSecret;
         String url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid="+appId+"&secret="+appSecret;
         String result = CurlUtil.getContent(url, null, "GET");
-        JSONObject data = JSONObject.fromObject(result);
+        JSONObject data = JSONObject.parseObject(result);
         String accessToken = (String) data.get("access_token");
         return accessToken;
     }

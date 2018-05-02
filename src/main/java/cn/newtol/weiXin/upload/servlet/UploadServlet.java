@@ -27,13 +27,15 @@ public class UploadServlet extends HttpServlet{
         String type = req.getParameter("type");
         String time = req.getParameter("time");
         String fileUrl = null;
-        if(!isBlank(req.getParameter("url"))){
+        String name = null;
+        if(!isBlank(req.getParameter("url")) && !isBlank(req.getParameter("name"))){
             fileUrl = req.getParameter("url");
+            name = req.getParameter("name");
         }else {
             return;
         }
         try {
-             str = uploadService.Upload(fileUrl,type,time);
+             str = uploadService.Upload(fileUrl,type,time,name);
         } catch (KeyManagementException e) {
             e.printStackTrace();
         } catch (NoSuchAlgorithmException e) {

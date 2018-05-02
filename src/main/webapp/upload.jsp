@@ -13,6 +13,7 @@
 <body>
 <form method="post" action="/weiXin/upload" enctype="application/x-www-form-urlencoded multipart/form-data">
 素材的类型：
+    <input type="text" name="name" placeholder="输入素材名字">
     <select class="type_select" name="type">
         <option value="image">图片</option>
         <option value="video">视频</option>

@@ -2,8 +2,9 @@ package cn.newtol.weiXin.menu;
 
 
 import cn.newtol.weiXin.util.StringUtil;
-import net.sf.json.JSONObject;
-import net.sf.json.JSONArray;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,7 +56,7 @@ public class Button {
         if (subButton != null && subButton.size() > 0) {
             array = new JSONArray();
             for (Button button : subButton) {
-                array.put(button.toJson());
+                array.add(button.toJson());
             }
         }
         return array;
