@@ -7,6 +7,7 @@ import java.util.Map;
  * @Description:
  * @Date: Created in 18:07 2018/5/2
  */
-public interface IUpload {
+public interface IUpload  {
     public int insert(Map<String,String> map);
+    public int delete(String mediaId);
 }

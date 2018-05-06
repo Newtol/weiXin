@@ -7,6 +7,7 @@ package cn.newtol.weiXin.util;
 
 
 import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
@@ -31,4 +32,11 @@ public class SqlSessionFactoryUtil {
         }
         return sqlSessionFactory;
     }
+
+    public static SqlSession getSqlSession(){
+        SqlSession session = getSqlSessionFactory().openSession();
+        return session;
+    }
+
+
 }

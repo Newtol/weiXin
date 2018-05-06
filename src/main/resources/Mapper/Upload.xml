@@ -3,6 +3,9 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.newtol.weiXin.upload.dao.IUpload">
     <insert id="insert" parameterType="Map" keyProperty="id" >
-        INSERT INTO weiXin_file (media_id,url,file_type,time_type,media_name) VALUES (#{media_id},#{url},#{file_type},#{time_type},#{media_name})
+        INSERT INTO weixin_file (media_id,url,file_type,time_type,media_name) VALUES (#{media_id},#{url},#{file_type},#{time_type},#{media_name})
     </insert>
+    <delete id="delete" parameterType="String">
+        DELETE FROM weixin_file  WHERE  media_id = #{mediaId}
+    </delete>
 </mapper>

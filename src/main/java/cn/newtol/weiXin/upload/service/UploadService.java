@@ -15,4 +15,6 @@ public interface UploadService {
     public String Upload(String url,String type,String time,String name) throws KeyManagementException, NoSuchAlgorithmException, NoSuchProviderException, IOException;
 
     public String insert(Map<String,String> map);
+
+    public String delete(String mediaId);
 }

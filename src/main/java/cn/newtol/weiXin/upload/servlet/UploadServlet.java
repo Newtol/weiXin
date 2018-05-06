@@ -46,4 +46,6 @@ public class UploadServlet extends HttpServlet{
         resp.setContentType("text/JavaScript; charset=utf-8");
         resp.getWriter().println(str);
     }
+
+
 }

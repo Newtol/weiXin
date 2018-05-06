@@ -19,5 +19,13 @@
     <servlet-name>UploadServlet</servlet-name>
     <url-pattern>/weiXin/upload</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>DeleteServlet</servlet-name>
+    <servlet-class>cn.newtol.weiXin.upload.servlet.DeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteServlet</servlet-name>
+    <url-pattern>/weiXin/delete</url-pattern>
+  </servlet-mapping>
 
 </web-app>

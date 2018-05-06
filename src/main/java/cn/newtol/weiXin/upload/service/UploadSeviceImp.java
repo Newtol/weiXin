@@ -1,9 +1,10 @@
 package cn.newtol.weiXin.upload.service;
 
 import cn.newtol.weiXin.upload.dao.IUpload;
+import cn.newtol.weiXin.util.AccessToken;
+import cn.newtol.weiXin.util.CurlUtil;
 import cn.newtol.weiXin.util.JsonUtil;
 import cn.newtol.weiXin.util.SqlSessionFactoryUtil;
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.ibatis.session.SqlSession;
 
@@ -62,8 +63,7 @@ public class UploadSeviceImp implements UploadService {
     @Override
     public String insert(Map<String, String> map) {
         String str = null;
-        SqlSessionFactoryUtil sqlSessionFactoryUtil = null;
-        SqlSession session = sqlSessionFactoryUtil.getSqlSessionFactory().openSession();
+        SqlSession session = SqlSessionFactoryUtil.getSqlSession();
         IUpload iuser = session.getMapper(IUpload.class);
         int i = iuser.insert(map);
         if(i!= 0){
@@ -75,8 +75,40 @@ public class UploadSeviceImp implements UploadService {
         return str;
     }
 
-//    public static void main(String[] args) {
-//
-//    }
+    @Override
+    public String delete(String mediaId) {
+        String str = null;
+        //请求的url
+        String url = "https://api.weixin.qq.com/cgi-bin/material/del_material?access_token="+ AccessToken.getAccessToken();
+        //请求数据构建
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("media_id",mediaId);
+        String  data = jsonObject.toString();
+        //分析请求结果
+        String result = CurlUtil.postData(url,data);
+        Map resultMap = JsonUtil.stringToCollect(result);
+        if(resultMap.get("errcode").equals("0")||resultMap.get("errmsg").equals("ok")){
+            SqlSession session = SqlSessionFactoryUtil.getSqlSession();
+            IUpload iUpload = session.getMapper(IUpload.class);
+            int i = iUpload.delete(mediaId);
+            if(i!=0){
+                str = "删除成功";
+            }else{
+                str = "数据库删除失败";
+            }
+        }else{
+             str = "微信服务器删除失败";
+        }
+        jsonObject.put("message",str);
+        String resultMessage = jsonObject.toString();
+        System.out.println(result);
+        return resultMessage;
+    }
+
+    public static void main(String[] args) {
+        UploadService uploadService = new UploadSeviceImp();
+        String  str = uploadService.delete("tP0y34JmbzKUFw-m4Zy6U-2FkWBjmPZcjCy4d_yI3JU");
+        System.out.println(str);
+    }
 
 }
