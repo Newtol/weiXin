@@ -2,6 +2,7 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <!--接入微信服务器-->
   <servlet>
     <servlet-name>IndexServlet</servlet-name>
     <servlet-class>cn.newtol.weiXin.message.servlet.IndexServlet</servlet-class>
@@ -10,7 +11,7 @@
     <servlet-name>IndexServlet</servlet-name>
     <url-pattern>/weiXin</url-pattern>
   </servlet-mapping>
-
+  <!--多媒体上传-->
   <servlet>
     <servlet-name>UploadServlet</servlet-name>
     <servlet-class>cn.newtol.weiXin.upload.servlet.UploadServlet</servlet-class>
@@ -19,6 +20,7 @@
     <servlet-name>UploadServlet</servlet-name>
     <url-pattern>/weiXin/upload</url-pattern>
   </servlet-mapping>
+  <!--删除多媒体文件-->
   <servlet>
     <servlet-name>DeleteServlet</servlet-name>
     <servlet-class>cn.newtol.weiXin.upload.servlet.DeleteServlet</servlet-class>
@@ -26,6 +28,15 @@
   <servlet-mapping>
     <servlet-name>DeleteServlet</servlet-name>
     <url-pattern>/weiXin/delete</url-pattern>
+  </servlet-mapping>
+  <!--微信网页授权(用户信息获取)-->
+  <servlet>
+    <servlet-name>getUserInfoServlet</servlet-name>
+    <servlet-class>cn.newtol.weiXin.getUserInfo.servlet.getUserInfoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getUserInfoServlet</servlet-name>
+    <url-pattern>/weiXin/getUserInfo/*</url-pattern>
   </servlet-mapping>
 
 </web-app>

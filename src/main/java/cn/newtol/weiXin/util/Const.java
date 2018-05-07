@@ -11,4 +11,6 @@ public class Const {
     public static final String AppSecret = "";
     public static final String Token = "";
     public static final String AccessToken = "AccessToken:";
+    public static final String redirect_uri = "http://2pmwdf.natappfree.cc/weiXin/getUserInfo";
+    public static final String startPage = "https://github.com/cquptrhw?tab=repositories";
 }

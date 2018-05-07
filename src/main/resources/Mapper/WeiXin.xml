@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.newtol.weiXin.getUserInfo.dao.IUser">
+    <insert id="insertUserInfo" parameterType="Map">
+        INSERT INTO user_info(openId,nickName,headImgUrl) VALUES (#{openid},#{nickname},#{headimgurl})
+    </insert>
+    <select id="getUserInfo" resultType="Map">
+        SELECT openId,headImgUrl,nickName from user_info WHERE openId=#{0}
+    </select>
+</mapper>

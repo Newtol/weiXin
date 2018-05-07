@@ -43,5 +43,6 @@
 
     <mappers>
         <mapper resource="Mapper/Upload.xml" />
+        <mapper resource="Mapper/WeiXin.xml" />
     </mappers>
 </configuration>

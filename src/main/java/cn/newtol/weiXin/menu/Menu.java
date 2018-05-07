@@ -1,5 +1,6 @@
 package cn.newtol.weiXin.menu;
 import cn.newtol.weiXin.util.AccessToken;
+import cn.newtol.weiXin.util.Const;
 import cn.newtol.weiXin.util.CurlUtil;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -21,9 +22,10 @@ public class Menu {
 
         Button viewButton = new Button();
         viewButton.setType("view");
-        viewButton.setName("百度");
-        viewButton.setUrl("https://www.baidu.com");
+        viewButton.setName("用户信息获取");
+        viewButton.setUrl("https://open.weixin.qq.com/connect/oauth2/authorize?appid="+ Const.AppId+"&redirect_uri="+Const.redirect_uri+"&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect");
         viewButton.setKey("key2");
+
 
         Button scancodePushButton = new Button();
         scancodePushButton.setType("scancode_push");
